@@ -13,11 +13,11 @@ const contactSchema = mongoose.Schema({
         type: String,
         required: true
       },
-      contactNumber: {
+    contactNumber: {
         type: Number,
         required: true
       },
-      comment: {
+    comment: {
         type: String,
       }
 });
