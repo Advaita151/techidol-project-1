@@ -14,7 +14,7 @@ section
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #095a55;
+    background-color: rgb(91, 69, 211);
 
 }
 section::before
@@ -25,7 +25,7 @@ section::before
     left: 0;
     width: 50%;
     height: 100%;
-    background: #fff38e;
+    background: #bae7ff;
 }
 
 .container
@@ -46,7 +46,7 @@ section::before
     top: 40px;
     width: 350px;
     height: calc(100% - 80px);
-    background: #095a55;
+    background: rgb(91, 69, 211);
     z-index: 1;
     padding: 40px;
     display: flex;
@@ -146,7 +146,7 @@ section::before
 
 .container .contactForm h2
 {
-    color: #0f3959;
+    color: rgb(91, 69, 211);
     font-size: 24px;
     font-weight: 500;
 }
@@ -215,7 +215,7 @@ section::before
     font-size:  12px;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #095a55;
+    color: rgb(18, 107, 189);
     font-weight: 500;
 } 
 
@@ -224,7 +224,7 @@ section::before
 {
     position: relative;
     cursor: pointer;
-    background: #095a55;
+    background: rgb(91, 69, 211);
     border-radius: 20px;
     color: #fff;
     border: none;
@@ -234,7 +234,7 @@ section::before
 }
 
 .container .contactForm .formBox .inputBox input[type="submit"]:hover{
-    background: #0d9480;
+    background: rgb(91, 69, 211);
 }
 
 /* make the form responsive */
@@ -278,7 +278,7 @@ section::before
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: #fff38e;
+        background: rgb(118, 186, 226);
     }
 
     section::before

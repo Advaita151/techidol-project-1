@@ -3,27 +3,31 @@ import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from "cors";
 import contactUsRoute from './routers/contactUsRoute.js'
-import path from 'path'
+import path,{dirname} from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT
 const mongoDB = process.env.MONGODB_URI
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 const mongo = "mongodb://localhost:27017/techidol1"
 
 app.use(express.json());
 app.use(cors());
-// app.use(express.static('public'));
+app.use(express.static('../public'));
+app.use("/contact",contactUsRoute);
 
 app.get("/",(req,res)=>{
-    res.status(234).send("WELCOME to my website")
+    res.sendFile(path.join(__dirname, "index.html"))
 })
 
 
 
-app.use("/contact",contactUsRoute);
 
 mongoose
     .connect(mongoDB)
