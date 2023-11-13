@@ -42,8 +42,8 @@
                             <input type="text" required id="contactNumber">
                             <span>Mobile Number</span>
                         </div>
-                        <div class="inputBox w100" id="comment">
-                            <textarea required></textarea>
+                        <div class="inputBox w100" >
+                            <textarea required id="comment"></textarea>
                             <span>Write your message here...</span>
                         </div>
                         <div class="inputBox w100">
@@ -52,5 +52,48 @@
                     </div>
                 </div> 
         </section>
+
+        <script>
+           const btn = document.getElementById("button");
+
+            btn.addEventListener("click",async(e)=>{
+                e.preventDefault();
+                
+            const comment = document.getElementById("comment").value;
+            const contact = document.getElementById("contactNumber").value;
+            const last = document.getElementById("lastName").value;
+            const first = document.getElementById("firstName").value;
+            const email = document.getElementById("email").value;
+
+            const formData = {
+                firstName: first,
+                lastName: last,
+                email: email,
+                contactNumber: contact,
+                comment: comment
+            };
+
+                try {
+                const response = await fetch('/contact', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+            alert('Contact form submitted successfully!');
+            
+            } else {
+            alert('Failed to submit contact form. Please try again later.');
+            }
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred while submitting the contact form.');
+            }
+
+            })
+        </script>
     </body>
 </html>
