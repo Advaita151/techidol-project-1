@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from "cors";
 import contactUsRoute from './routers/contactUsRoute.js'
+import dashboardRoute from './routers/dashboardRoute.js'
 import path,{dirname} from 'path';
 import { fileURLToPath } from 'url';
 
@@ -21,10 +22,13 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('../public'));
 app.use("/contact",contactUsRoute);
+app.use("/dashboard",dashboardRoute);
+
 
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname, "index.html"))
 })
+
 
 
 
