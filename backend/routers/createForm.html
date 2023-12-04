@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard</title>
+  <title>Create Form</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,6 +29,128 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+ 
+  
+    <style>
+      /* Import Google font - Poppins */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      .container {
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        background: #fff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+      .container header {
+        font-size: 1.5rem;
+        color: #333;
+        font-weight: 500;
+        text-align: center;
+      }
+      .container .form {
+        margin-top: 30px;
+      }
+      .form .input-box {
+        width: 100%;
+        margin-top: 20px;
+      }
+      .input-box label {
+        color: #333;
+      }
+      .form :where(.input-box input, .select-box) {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        outline: none;
+        font-size: 1rem;
+        color: #707070;
+        margin-top: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 0 15px;
+      }
+      .input-box input:focus {
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      }
+      .form .column {
+        display: flex;
+        column-gap: 15px;
+      }
+      .form .gender-box {
+        margin-top: 20px;
+      }
+      .gender-box h3 {
+        color: #333;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      .form :where(.gender-option, .gender) {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+        flex-wrap: wrap;
+      }
+      .form .gender {
+        column-gap: 5px;
+      }
+      .gender input {
+        accent-color: rgb(130, 106, 251);
+      }
+      .form :where(.gender input, .gender label) {
+        cursor: pointer;
+      }
+      .gender label {
+        line-height: 40px;
+        font-size: 20px;
+        color: #707070;
+      }
+      .address :where(input, .select-box) {
+        margin-top: 15px;
+      }
+      .select-box select {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        color: #767676;
+        font-size: 1rem;
+      }
+      .form button {
+        height: 55px;
+        width: 100%;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 30px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        background: rgb(130, 106, 251);
+      }
+      .form button:hover {
+        background: rgb(88, 56, 250);
+      }
+      /*Responsive*/
+      @media screen and (max-width: 500px) {
+        .form .column {
+          flex-wrap: wrap;
+        }
+        .form :where(.gender-option, .gender) {
+          row-gap: 15px;
+        }
+      }
+    </style>
+  
 
 </head>
 
@@ -134,6 +256,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      
+
+      
+
+
+
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
@@ -205,161 +333,76 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Create Form</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+          <li class="breadcrumb-item active">Create form</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
-      <div class="row">
-
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
-
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Volunteers <span>| Region</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>9</h6>
-                      <!-- <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Volunteers <span>| India</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>27</h6>
-                      <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Donation <span>| Amount</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                     
-                      <i class="bi bi-currency-dollar"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>3,264Rs</h6>
-                      
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
-
+    <section class="container">
+        <header>Create Form</header>
+        <form id="create-form" action="" class="form">
+          <div class="input-box">
+            <label style="font-size: 20px">Form Name</label>
+            <input
+              id="Form_Name"
+              type="text"
+              placeholder="Enter form name"
+              required
+            />
           </div>
-          
-        </div><!-- End Left side columns -->
-        <!-- Recent Activity -->
-    <div class="col-lg-4">
-
-      
-            <div class="card">
-              
-
-              <div class="card-body">
-                <h5 class="card-title">Forms</h5>
-
-                <div class="activity">
-                  <p>Submit form for volunteer work</p>
-                  <button class="mt-2 mx-24 bg-blue-500 font-bold w-28 rounded-md hover:bg-blue-700" id="formSubmit">Submit form</button>
-                </div>
-
-              </div>
-            </div>
-            
+          <div class="gender">
+            <label>Full Name</label>
+            <input id="Full_Name" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Father Name</label>
+            <input id="Father_Name" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Qualification</label>
+            <input id="Qualification" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Occupation</label>
+            <input id="Occupation" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Email Address</label>
+            <input id="Email_Address" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Phone Number</label>
+            <input id="Phone_Number" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Birth Date</label>
+            <input id="Birth_Date" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Gender</label>
+            <input id="Gender" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Address</label>
+            <input id="Address" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Aadhar Card</label>
+            <input id="Aadhar_Card" type="checkbox" />
+          </div>
+          <div class="gender">
+            <label>Marital Status</label>
+            <input id="Marital_Status" type="checkbox" />
           </div>
 
-    </div>
-      
-      
-
-    </section>
+          <button id="submit">Create</button>
+        </form>
+      </section>
     
-    <div id="blogsContainer"></div>
     
   </main><!-- End #main -->
 
@@ -385,40 +428,61 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-    const formSubmit = document.getElementById("formSubmit");
+    
+        const btn = document.getElementById("submit");
 
-    formSubmit.addEventListener('click',()=>{
-      window.location.href = "/form"
-    })
+        btn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          const Form_Name = document.getElementById("Form_Name").value;
+          const Full_Name = document.getElementById("Full_Name").checked;
+          const Father_Name = document.getElementById("Father_Name").checked;
+          const Qualification =
+            document.getElementById("Qualification").checked;
+          const Occupation = document.getElementById("Occupation").checked;
+          const Email_Address =
+            document.getElementById("Email_Address").checked;
+          const Phone_Number = document.getElementById("Phone_Number").checked;
+          const Birth_Date = document.getElementById("Birth_Date").checked;
+          const Gender = document.getElementById("Gender").checked;
+          const Address = document.getElementById("Address").checked;
+          const Aadhar_Card = document.getElementById("Aadhar_Card").checked;
+          const Marital_Status =
+            document.getElementById("Marital_Status").checked;
 
-    document.addEventListener('DOMContentLoaded', async function(){
-      const blogsContainer = document.getElementById('blogsContainer');
-      try {
-                
-        const response = await fetch('/dashboard/blog');
-        const blogs = await response.json();
+          const formData = {
+            Form_Name: Form_Name,
+            Full_Name: Full_Name,
+            Father_Name: Father_Name,
+            Qualification: Qualification,
+            Occupation: Occupation,
+            Email_Address: Email_Address,
+            Phone_Number: Phone_Number,
+            Birth_Date: Birth_Date,
+            Gender: Gender,
+            Address: Address,
+            Aadhar_Card: Aadhar_Card,
+            Marital_Status: Marital_Status,
+          };
 
-                
-        blogs.forEach(blog => {
-          const blogDiv = document.createElement('div');
-          blogDiv.innerHTML = `
-            <section class = "card">
-              <div class="filter">
-                <div class="text-overlay">
-                  <h2 class="m-3 text text-xl font-bold">${blog.title}</h2>
-                  <p class="mx-3">${blog.content}</p>
-                  <div class="mx-3 font-semibold text-gray-500">Created by Master Admin</div>
-                </div>
-              </div>
-            </section>
-            `;
-                    
-            blogsContainer.appendChild(blogDiv);
-          });
-      } catch (error) {
-        console.error(error);       
-      }
-    })
+          try {
+            const response = await fetch("/dashboard/create-form", {
+              method: "POST",
+              body: JSON.stringify(formData),
+              headers: { "Content-Type": "application/json" },
+            });
+
+            if (response.ok) {
+              alert("Form Created Successfully!");
+              location.assign("/dashboard");
+            } else {
+              alert("Failed to create form. Please try again later.");
+            }
+          } catch (error) {
+            console.error(error);
+            alert("An error occurred while submitting the form.");
+          }
+        });
+      
   </script>
 </body>
 

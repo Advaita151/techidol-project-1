@@ -138,96 +138,146 @@
       <form action="#" class="form">
         <div class="input-box">
           <label>Full Name</label>
-          <input type="text" placeholder="Enter full name" required />
+          <input id="name" type="text" placeholder="Enter full name" required />
         </div>
 
         <div class="input-box">
           <label>Father Name</label>
-          <input type="text" placeholder="Enter full name" required />
+          <input id="fatherName" type="text" placeholder="Enter full name" required />
         </div>
 
         <div class="column">
             <div class="input-box">
                 <label>Qualification</label>
-                <input type="text" placeholder="Enter your Qualification" required />
+                <input id="qualification" type="text" placeholder="Enter your Qualification" required />
             </div>
             <div class="input-box">
                 <label>Occupation</label>
-                <input type="text" placeholder="Enter your Occupation" required />
+                <input id="occupation" type="text" placeholder="Enter your Occupation" required />
             </div>
-        </div>
-            
-        <div class="input-box">
-          <label>Email Address</label>
-          <input type="text" placeholder="Enter email address" required />
         </div>
 
         <div class="column">
           <div class="input-box">
+            <label>Email Address</label>
+            <input id="email" type="text" placeholder="Enter email address" required />
+          </div>
+          <div class="input-box">
+            <label>Password</label>
+            <input id="password" type="password" placeholder="Set Your Password" required />
+          </div>
+        </div>   
+
+        <div class="column">
+          <div class="input-box">
             <label>Phone Number</label>
-            <input type="number" placeholder="Enter phone number" required />
+            <input id="phone" type="number" placeholder="Enter phone number" required />
           </div>
           <div class="input-box">
             <label>Birth Date</label>
-            <input type="date" placeholder="Enter birth date" required />
+            <input id="date" type="date" placeholder="Enter birth date" required />
           </div>
         </div>
         <div class="gender-box">
           <h3>Gender</h3>
           <div class="gender-option">
             <div class="gender">
-              <input type="radio" id="check-male" name="gender" checked />
+              <input type="radio" id="check-male" name="male" checked />
               <label for="check-male">Male</label>
             </div>
             <div class="gender">
-              <input type="radio" id="check-female" name="gender" />
+              <input type="radio" id="check-female" name="female" />
               <label for="check-female">Female</label>
             </div>
             <div class="gender">
-              <input type="radio" id="check-other" name="gender" />
+              <input type="radio" id="check-other" name="prefer not say" />
               <label for="check-other">Prefer not to say</label>
             </div>
           </div>
         </div>
         <div class="input-box address">
           <label>Address</label>
-          <input type="text" placeholder="Enter street address" required />
-          <input
-            type="text"
-            placeholder="Enter street address line 2"
-            required
-          />
+          <input id="address" type="text" placeholder="Enter street address" required />
           <div class="column">
-            <div class="select-box">
-              <select>
-                <option hidden>Country</option>
-                <option>America</option>
-                <option>Japan</option>
-                <option>India</option>
-                <option>Nepal</option>
-              </select>
-            </div>
-            <input type="text" placeholder="Enter your city" required />
+            <input id="city" type="text" placeholder="Enter your city" required />
+            <input id="region" type="text" placeholder="Enter your region" required />
           </div>
           <div class="column">
-            <input type="text" placeholder="Enter your region" required />
-            <input type="number" placeholder="Enter postal code" required />
+            <input id="pincode" type="number" placeholder="Enter postal code" required />
+            <input id="marital" type="text" placeholder="Enter your Marital Status" required />
           </div>
         </div>
 
         <div class="column">
             <div class="input-box">
                 <label>Aadhar Card</label>
-                <input type="text" placeholder="Enter your Aadhar Number" required />
+                <input id="aadhar" type="text" placeholder="Enter your Aadhar Number" required />
             </div>
-            <div class="input-box">
-                <label>Marital Status</label>
-                <input type="text" placeholder="Enter your Marital Status" required />
-            </div>
+            
         </div>
 
-        <button>Submit</button>
+        <button id="submit">Submit</button>
       </form>
     </section>
+
+    <script>
+      const btn = document.getElementById("submit");
+      btn.addEventListener('click', async(e)=>{
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const fatherName = document.getElementById("fatherName").value;
+        const qualification = document.getElementById("qualification").value;
+        const occupation = document.getElementById("occupation").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        
+        const address = document.getElementById("address").value;
+        const city = document.getElementById("city").value;
+        const region = document.getElementById("region").value;
+        const pincode = document.getElementById("pincode").value;
+        const marital = document.getElementById("marital").value;
+        const aadhar = document.getElementById("aadhar").value;
+
+        const formData = {
+          name: name,
+          fathername: fatherName,
+          qualification: qualification,
+          occupation: occupation,
+          email: email,
+          password: password,
+          phone: phone,
+          date: date,
+          address: address,
+          city: city,
+          region: region,
+          pincode: pincode,
+          marital: marital,
+          aadhar: aadhar,   
+        }
+
+        try {
+                const response = await fetch('/volunteerRegister', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+            alert('Contact form submitted successfully!');
+            location.assign("/");
+            } else {
+            alert('Failed to submit contact form. Please try again later.');
+            }
+            } catch (error) {
+                console.error(error);
+                alert('An error occurred while submitting the contact form.');
+            }
+      })
+    </script>
   </body>
 </html>

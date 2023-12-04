@@ -6,6 +6,14 @@ import cookieParser from 'cookie-parser';
 import contactUsRoute from './routers/contactUsRoute.js'
 import dashboardRoute from './routers/dashboardRoute.js'
 import loginRoute from './routers/loginRoute.js'
+import scheduleRoute from './routers/scheduleRoute.js'
+import createFormRoute from './routers/createFormRoute.js'
+import volunteerRoute from './routers/volunteerRoute.js'
+import volunteerRegisterRoute from './routers/volunteerRegisterRoute.js'
+import blogRoute from './routers/blogRoute.js'
+import formRoute from './routers/formRoute.js'
+import matrimonyRoute from './routers/matrimonyRoute.js'
+import { protect } from './protect.js';
 import path,{dirname} from 'path';
 import { fileURLToPath } from 'url';
 
@@ -17,16 +25,20 @@ const mongoDB = process.env.MONGODB_URI
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-
-const mongo = "mongodb://localhost:27017/techidol1"
-
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use(express.static('../public'));
-app.use("/contact",contactUsRoute);
-app.use("/dashboard",dashboardRoute);
+app.use("/contact",protect,contactUsRoute);
+app.use("/volunteerRegister",protect,volunteerRegisterRoute);
+app.use("/dashboard",protect,dashboardRoute);
 app.use("/login",loginRoute);
+app.use("/schedule",protect,scheduleRoute);
+app.use("/create_form",protect,createFormRoute);
+app.use("/volunteer",protect,volunteerRoute);
+app.use("/blog",protect,blogRoute);
+app.use("/form",protect,formRoute);
+app.use("/matrimony",protect,matrimonyRoute);
 
 
 app.get("/",(req,res)=>{

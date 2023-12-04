@@ -134,7 +134,7 @@
   </head>
   <body>
     <section class="container">
-      <header>Volunteer Registration Form</header>
+      <header>Volunteer Form</header>
       <form action="#" class="form">
         <div id="Full_Name" class="input-box">
           <label>Full Name</label>
@@ -163,7 +163,7 @@
         </div>
 
         <div id="Phone_and_Birth" class="column">
-          <div id="Phone_Number class="input-box">
+          <div id="Phone_Number" class="input-box">
             <label>Phone Number</label>
             <input type="number" placeholder="Enter phone number" required />
           </div>
@@ -231,6 +231,14 @@
     </section>
   </body>
   <script>
+    document.addEventListener('DOMContentLoaded', async function(){
+      const formContainer = document.getElementById("formContainer")
+      try {
+        const response = await fetch("/form/api");
+        const form = await response.json();
+      }catch(err){
 
+      }
+    })
   </script>
 </html>
