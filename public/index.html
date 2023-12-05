@@ -2,54 +2,69 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quresh Conference</title>
 
+  <title>Quresh Conference</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha384-cF9+3z1t6DTLhPdbvV8LEb/XT4pTnqRaPe/R6h/t9Uz4K1Ii2T/DmmHoBdSoy3/Sp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+  <link rel="stylesheet" href="css/ionicons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" />
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
 
-
 <body>
-    <div class="contain-elements w-full">
-      <div class="logo w-full">
-        <img src="nav.jpg" alt="Your Logo" class="object-cover w-full">
-      </div>
-  
 
+  <div class="contain-elements w-full">
+    <div class="logo w-full flex items-center justify-center">
+      <img src="logo.jpeg" alt="Your Logo" class="object-cover w-1/2 h-1/2" />
+    </div>
 
     <div class="nav">
-      <header class="text-gray-600 body-font">
-        <div class="container-nav mx-auto flex flex-wrap px-4 flex-col md:flex-row items-center">
-          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-
-            <span class="ml-3 text-xl"></span>
-          </a>
-          <nav class="text-base nav-links">
-            <a href="/" class="hover:text-gray-900">Home</a>
-            <a href="/" class="hover:text-gray-900">About Us</a>
-            <div class="dropdown">
-              <button class="dropbtn hover:text-gray-900">Governing Body</button>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+      <header x-data="{ openGoverningBody: false, openPrograms: false }" class="bg-indigo-100 text-black body-font">
+        <div class="container-nav mx-auto flex flex-wrap flex-col md:flex-row items-center justify-center py-4 w-full">
+          <nav class="text-base nav-links justify-center pl-12">
+            <a href="/" class="hover:text-black">Home</a>
+            <a href="/" class="hover:text-black">About Us</a>
+            <div @click="openGoverningBody = !openGoverningBody" class="dropdown inline-block">
+              <button class="dropbtn hover:text-black">Governing Body <i class='fas fa-angle-down exx'
+                  style='font-size:17px'></i></button>
+              <div x-show="openGoverningBody" @click.away="openGoverningBody = false" class="dropdown-content">
+                <ul class="list-disc pl-4">
+                  <li><a href="#">Link 1</a></li>
+                  <li><a href="#">Link 2</a></li>
+                  <li><a href="#">Link 3</a></li>
+                </ul>
               </div>
             </div>
-            <a href="/" class="hover:text-gray-900"></a>
-            <a href="/" class="hover:text-gray-900">Programs </a>
-            <a href="/" class="hover:text-gray-900">Gallery</a>
-            <a href="/" class="hover:text-gray-900">Membership</a>
-            <a href="/" class="hover:text-gray-900">Annual Report</a>
-            <a href="/contact" class="hover:text-gray-900">Contact us</a>
+            <div @click="openPrograms = !openPrograms" class="dropdown inline-block">
+              <button class="dropbtn hover:text-black">Programs <i class='fas fa-angle-down exx'
+                  style='font-size:17px'></i></button>
+              <div x-show="openPrograms" @click.away="openPrograms = false" class="dropdown-content">
+                <ul class="list-disc pl-4">
+                  <li><a href="#">Program 1</a></li>
+                  <li><a href="#">Program 2</a></li>
+                  <li><a href="#">Program 3</a></li>
+                </ul>
+              </div>
+            </div>
+            <a href="/" class="hover:text-black">Gallery</a>
+            <a href="/" class="hover:text-black">Membership</a>
+            <a href="/" class="hover:text-black">Annual Report</a>
+            <a href="/" class="hover:text-black">Contact us</a>
           </nav>
           <button
-            class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">DONATE
+            class="inline-flex items-center bg-gray-100 mr-12 py-1 px-3 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+            DONATE
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               class="w-4 h-4 ml-1" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -58,282 +73,579 @@
         </div>
       </header>
 
+      <div id="imageCarousel" class="carousel-container bg-gray-300 rounded-lg shadow-md">
+        <div class="text">
+          <h3> Reimagine the Future </h3>
+          <h3> Education </h3>
+          <p style="color: white; font-size: larger;">Lorem ipsum dolor sit amet consectetur adipisicing elit <br>dicta
+            eum delectus laudantium et maxime dolores.</p>
 
-    
-    
-      
-      
-          <div class="hero-section relative w-full">
-              <img src="ngo.jpg" alt="Your Img" class="object-cover w-full">
-              <div class="hero-msg">
-                
+        </div>
+        <div id="slides" class="carousel-slides">
+
+          <div class="carousel-slide"><img src="image1.jpg" alt="Image 1"></div>
+          <div class="carousel-slide"><img src="image2.jpg" alt="Image 2"></div>
+          <div class="carousel-slide"><img src="image3.jpg" alt="Image 3"></div>
+          <div class="carousel-slide"><img src="image4.jpg" alt="Image 4"></div>
+        </div>
+
+        <button id="prevBtn" class="arrow-icon arrow-left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button id="nextBtn" class="arrow-icon arrow-right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="card-container">
+        <div class="cards">
+          <div class="card">
+            <svg class="test" width="230" height="160">
+
+              <defs>
+                <clipPath id="circleClip">
+                  <circle cx="50%" cy="50%" r="40" />
+                </clipPath>
+              </defs>
+
+
+              <rect width="100%" height="100%" rx="20" ry="20"
+                style="fill:rgb(234,235,254);stroke-width:3;stroke:rgb(234,235,254)" />
+
+
+              <circle cx="50%" cy="50%" r="40" class="person-image" transform="translate(0, -75)" />
+
+
+              <image href="<!-- IMAGE GOES HERE -->" x="32%" y="25%" width="80" height="80" class="person-image"
+                style="clip-path: url(#circleClip);" />
+
+
+              <text x="50%" y="70" class="info-container person-name" dominant-baseline="middle"
+                text-anchor="middle">President Name </text>
+
+
+              <text x="50%" y="100" class="info-container person-position" dominant-baseline="middle"
+                text-anchor="middle">President</text>
+            </svg>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <svg class="test" width="230" height="160">
+
+              <defs>
+                <clipPath id="circleClip">
+                  <circle cx="50%" cy="50%" r="40" />
+                </clipPath>
+              </defs>
+
+
+              <rect width="100%" height="100%" rx="20" ry="20"
+                style="fill:rgb(234,235,254);stroke-width:3;stroke:rgb(234,235,254)" />
+
+
+              <circle cx="50%" cy="50%" r="40" class="person-image" transform="translate(0, -75)" />
+
+
+              <image href="<!-- IMAGE GOES HERE -->" x="32%" y="25%" width="80" height="80" class="person-image"
+                style="clip-path: url(#circleClip);" />
+
+
+              <text x="50%" y="70" class="info-container person-name" dominant-baseline="middle"
+                text-anchor="middle">Vice President Name</text>
+
+
+              <text x="50%" y="100" class="info-container person-position" dominant-baseline="middle"
+                text-anchor="middle">Vice President</text>
+            </svg>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <svg class="test" width="230" height="160">
+
+              <defs>
+                <clipPath id="circleClip">
+                  <circle cx="50%" cy="50%" r="40" />
+                </clipPath>
+              </defs>
+
+
+              <rect width="100%" height="100%" rx="20" ry="20"
+                style="fill:rgb(234,235,254);stroke-width:3;stroke:rgb(234,235,254)" />
+
+
+              <circle cx="50%" cy="50%" r="40" class="person-image" transform="translate(0, -75)" />
+
+
+              <image href="<!-- IMAGE GOES HERE -->" x="32%" y="25%" width="80" height="80" class="person-image"
+                style="clip-path: url(#circleClip);" />
+
+
+              <text x="50%" y="70" class="info-container person-name" dominant-baseline="middle"
+                text-anchor="middle">Secretary Name</text>
+
+
+              <text x="50%" y="100" class="info-container person-position" dominant-baseline="middle"
+                text-anchor="middle">Secretary</text>
+            </svg>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <svg class="test" width="230" height="160">
+
+              <defs>
+                <clipPath id="circleClip">
+                  <circle cx="50%" cy="50%" r="40" />
+                </clipPath>
+              </defs>
+
+
+              <rect width="100%" height="100%" rx="20" ry="20"
+                style="fill:rgb(234,235,254);stroke-width:3;stroke:rgb(234,235,254)" />
+
+
+              <circle cx="50%" cy="50%" r="40" class="person-image" transform="translate(0, -75)" />
+
+
+              <image href="<!-- IMAGE GOES HERE -->" x="32%" y="25%" width="80" height="80" class="person-image"
+                style="clip-path: url(#circleClip);" />
+
+
+              <text x="50%" y="70" class="info-container person-name" dominant-baseline="middle"
+                text-anchor="middle">Moin Khaleel Qureshi</text>
+
+
+              <text x="50%" y="100" class="info-container person-position" dominant-baseline="middle"
+                text-anchor="middle">Women's wing President</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="nextsection ">
+
+        <div class="right_sidebar extra">
+          <div class="square" id="square1"></div>
+          <div class="rect1" id="square2"></div>
+          <div class="rect2" id="square3"></div>
+        </div>
+
+        <div class="left_sidebar">
+
+          <div class="sec1" style="padding-right: 580px; cursor: pointer;"> <a class="txt half-underline"><u
+                style="text-decoration: none;">ABOUT US</u></a></div>
+          <div class="sec1" style="display: flex; justify-content: left; padding-left: 10px; height: 90px;">
+            <h2 class="text-4xl font-medium title-font text-gray-900 mb-12 text-left tt">
+              <b>We are NGO which helps the<br />
+                needy ones</b>
+            </h2>
+          </div>
+          <div
+            style=" width: 100%; display: flex; justify-content: left; text-align: left; padding-left: 10px; color: darkgrey;">
+            <article style="font-size: large;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              <br />
+              eiusmod tempor adipiscing elit, sed do eiusmod tempor Lorem ipsum
+              <br />
+              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              <br />
+              adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet,
+              <br />
+              consectetur adipiscing elit, sed do eiusmod tempor adipiscing elit,
+              sed <br />
+              do eiusmod tempor
+            </article>
+          </div>
+          <br />
+          <div style="width: 100%; display: flex; justify-content: left;">
+            <div class="container1">
+              <h1 class="tt"><b>Our Mission</b></h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                <br />
+                do eiusmod tempor adipiscing elit, sed do eiusmod tempor
+              </p>
+            </div>
+          </div>
+          <br />
+          <div style="width: 100%; display: flex; justify-content: left;">
+            <div class="container1">
+              <br>
+              <h1 class="tt"><b>Our Vision </b></h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                <br />
+                do eiusmod tempor adipiscing elit, sed do eiusmod tempor
+              </p>
+
+              <br />
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="bluebreaker" style="display: flex; justify-content: center; align-items: center; gap: 100px;">
+        <div class="cont"
+          style="display: flex; flex-direction: column ; justify-content: center; align-items: center; gap: 20px; height: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center; gap:7px">
+            <div style="font-weight: 900; font-size: 70px;">15</div>
+            <div style="color: #5044EB; font-size: 50px; font-weight: 900; margin-top: 4px;">yr</div>
+          </div>
+          <div class="text2">15 years of working<br>
+            experince</div>
+
+        </div>
+        <div class="linee"></div>
+        <div class="cont"
+          style="display: flex; flex-direction: column ; justify-content: center; align-items: center; gap: 20px; height: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center; gap:7px">
+            <div style="font-weight: 900; font-size: 70px;">500</div>
+            <div style="color: #5044EB; font-size: 50px; font-weight: 900; margin-top: 4px;">+</div>
+          </div>
+          <div class="text2">500 above volunteers<br>
+            are available</div>
+
+        </div>
+        <div class="linee"></div>
+
+        <div class="cont"
+          style="display: flex; flex-direction: column ; justify-content: center; align-items: center; gap: 20px; height: 100%;">
+          <div style="display: flex; justify-content: center; align-items: center; gap:7px">
+            <div style="font-weight: 900; font-size: 70px;">1</div>
+            <div style="color: #5044EB; font-size: 50px; font-weight: 900; margin-top: 4px;">M</div>
+          </div>
+          <div class="text2">$1 million money raises<br>
+            for needy ones</div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="cause-container">
+        <div class="hed ">
+          <h1 class="underrline-text">Recent causes</h1>
+        </div>
+        <div class="text2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae quod eius sequi voluptas,<br>
+          pariatur autem vel ex suscipit amet reprehenderit!</div>
+
+        <div class="blocs">
+          <div class="blc">
+            <div class="ph"> </div>
+            <div class="headin">DONATE FOR EDUCATION </div>
+            <div class="para"> Lorem ipsum dolor sit amet, consectetur<br>
+              adipiscing elit, sed do eiusmod tempor <br>
+              adipiscing elit, sed do eiusmod tempor<br>
+              Lorem ipsum dolor sit amet, consect</div>
+            <div class="bh">
+              <div> Raised : $500 </div>
+              <div> Goal : $800</div>
+            </div>
+            <div class="loading-bar">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="blc">
+            <div class="ph1"> </div>
+            <div class="headin">DONATE FOR HEALTH </div>
+            <div class="para"> Lorem ipsum dolor sit amet, consectetur<br>
+              adipiscing elit, sed do eiusmod tempor <br>
+              adipiscing elit, sed do eiusmod tempor<br>
+              Lorem ipsum dolor sit amet, consect</div>
+            <div class="bh">
+              <div> Raised : $500 </div>
+              <div> Goal : $800</div>
+            </div>
+            <div class="loading-bar">
+              <div class="fill"></div>
+            </div>
+          </div>
+          <div class="blc">
+            <div class="ph2"> </div>
+            <div class="headin">DONATE FOR MATRIMONY </div>
+            <div class="para"> Lorem ipsum dolor sit amet, consectetur<br>
+              adipiscing elit, sed do eiusmod tempor <br>
+              adipiscing elit, sed do eiusmod tempor<br>
+              Lorem ipsum dolor sit amet, consect</div>
+            <div class="bh">
+              <div> Raised : $500 </div>
+              <div> Goal : $800</div>
+            </div>
+            <div class="loading-bar">
+              <div class="fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="opinion-container ">
+        <div class="hed">
+          <h1 class="underrline-text">What People Say</h1>
+        </div>
+        <div class="text2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae quod eius sequi voluptas,<br>
+          pariatur autem vel ex suscipit amet reprehenderit!</div>
+        <div class="review-container">
+
+          <div class="left-arrow" onclick="changeReview(-1)"><i class="fas fa-chevron-left"></i></div>
+          <div class="right-arrow" onclick="changeReview(1)"><i class="fas fa-chevron-right"></i></div>
+          <div class="review-insider">
+
+            <div class="review">
+              <div class="sign" style="display: flex; justify-content: left; padding-left: 10px;"> <i
+                  class="fa fa-quote-left" style="font-size:48px;color:rgb(0, 17, 255)"></i></div>
+              <div class="txtt"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Quam nulla sit impedit
+                illum
+                quis voluptatibus saepe,<br> voluptatem fugit maiores! Suscipit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                saepe </div>
+              <div class="phname">
+                <div class="foto"></div>
+                <div class="phdetails">
+                  <span style="font-size: large;"> Karelena Marin </span>
+                  <span style="font-size: small;">Bank Manager</span>
+                </div>
               </div>
             </div>
 
 
-      <div class="our team">
-        <section class="text-gray-600 body-font">
-          <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-20">
-              <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">OUR TEAM</h1>
-              <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
-                asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them.</p>
+            <div class="review">
+              <div class="sign" style="display: flex; justify-content: left; padding-left: 10px;"> <i
+                  class="fa fa-quote-left" style="font-size:48px;color:rgb(0, 17, 255)"></i></div>
+              <div class="txtt"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Quam nulla sit impedit
+                illum
+                quis voluptatibus saepe,<br> voluptatem fugit maiores! Suscipit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                saepe </div>
+              <div class="phname">
+                <div class="foto"></div>
+                <div class="phdetails">
+                  <span style="font-size: large;"> John Doe </span>
+                  <span style="font-size: small;">Software Engineer</span>
+                </div>
+              </div>
             </div>
-            <div class="flex flex-wrap -m-4">
-              <div class="p-4 lg:w-1/2">
-                <div
-                  class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                  <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src="t1.webp">
-                  <div class="flex-grow sm:pl-8">
-                    <h2 class="title-font font-medium text-lg text-gray-900">Holden Caulfield</h2>
-                    <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                    <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                    <span class="inline-flex">
-                      <a class="text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                          </path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                          </path>
-                        </svg>
-                      </a>
-                    </span>
-                  </div>
+
+            <div class="review">
+              <div class="sign" style="display: flex; justify-content: left; padding-left: 10px;"> <i
+                  class="fa fa-quote-left" style="font-size:48px;color:rgb(0, 17, 255)"></i></div>
+              <div class="txtt"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Quam nulla sit impedit
+                illum
+                quis voluptatibus saepe,<br> voluptatem fugit maiores! Suscipit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                saepe </div>
+              <div class="phname">
+                <div class="foto"></div>
+                <div class="phdetails">
+                  <span style="font-size: large;"> Jane Smith </span>
+                  <span style="font-size: small;">Marketing Specialist</span>
                 </div>
+
               </div>
-              <div class="p-4 lg:w-1/2">
-                <div
-                  class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                  <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src="t2.webp">
-                  <div class="flex-grow sm:pl-8">
-                    <h2 class="title-font font-medium text-lg text-gray-900">Alper Kamu</h2>
-                    <h3 class="text-gray-500 mb-3">Designer</h3>
-                    <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                    <span class="inline-flex">
-                      <a class="text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                          </path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                          </path>
-                        </svg>
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4 lg:w-1/2">
-                <div
-                  class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                  <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src="t3.webp">
-                  <div class="flex-grow sm:pl-8">
-                    <h2 class="title-font font-medium text-lg text-gray-900">Atticus Finch</h2>
-                    <h3 class="text-gray-500 mb-3">UI Developer</h3>
-                    <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                    <span class="inline-flex">
-                      <a class="text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                          </path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                          </path>
-                        </svg>
-                      </a>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div class="p-4 lg:w-1/2">
-                <div
-                  class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
-                  <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4"
-                    src="t4.webp">
-                  <div class="flex-grow sm:pl-8">
-                    <h2 class="title-font font-medium text-lg text-gray-900">Henry Letham</h2>
-                    <h3 class="text-gray-500 mb-3">Designer</h3>
-                    <p class="mb-4">DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                    <span class="inline-flex">
-                      <a class="text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                          </path>
-                        </svg>
-                      </a>
-                      <a class="ml-2 text-gray-500">
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                          stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                          <path
-                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                          </path>
-                        </svg>
-                      </a>
-                    </span>
-                  </div>
+            </div>
+
+            <div class="review">
+              <div class="sign" style="display: flex; justify-content: left; padding-left: 10px;"> <i
+                  class="fa fa-quote-left" style="font-size:48px;color:rgb(0, 17, 255)"></i></div>
+              <div class="txtt"> Lorem ipsum dolor sit, amet consectetur adipisicing elit.<br> Quam nulla sit impedit
+                illum
+                quis voluptatibus saepe,<br> voluptatem fugit maiores! Suscipit!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                saepe </div>
+              <div class="phname">
+                <div class="foto"></div>
+                <div class="phdetails">
+                  <span style="font-size: large;"> Alex Johnson </span>
+                  <span style="font-size: small;">Designer</span>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+
+        </div>
       </div>
 
 
-      <div class="left_sidebar">
-        <img src="">
+
+
+      <div class="bluebreakerr in">
+        <div class="circ"></div>
+        <div style="font-size: 35px;
+   text-align: left;
+   font-weight: bolder;
+   position: relative;
+   top: 0px;
+   left: -150px; width: 700px;"> Our Trusted<br>Patners</div>
+        <div class="imgee"><img class="imge" src="brand1.png">
+          <img class="imge" src="brand2.png">
+          <img class="imge" src="brand3.png">
+          <img class="imge" src="brand4.png">
+        </div>
+
+
       </div>
-      <div class="right_sidebar">
-        <a><u>ABOUT US</u></a>
-        <h2 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center"><b>We are ngo which helps the<br>
-        needy ones</b></h2>
-        <article>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
-            eiusmod tempor adipiscing elit, sed do eiusmod tempor Lorem ipsum <br>
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br>
-            adipiscing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, <br>
-            consectetur adipiscing elit, sed do eiusmod tempor adipiscing elit, sed <br>
-            do eiusmod tempor
-        </article><br>
-        <div class="container1">
-            <h1><b>Our Mission</b></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <br>
-                do eiusmod tempor adipiscing elit, sed do eiusmod tempor </p>
-        </div><br>
-        <div class="container1">
-            <h1><b>Our Vision
-            </b></h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed <br>
-                do eiusmod tempor adipiscing elit, sed do eiusmod tempor </p>
+      <div class="rect">
+
+        <div class="circle1"> </div>
+        <div class="circle2"> </div>
+        <div class="circle3"> </div>
+        <div class="circle4"> </div>
+
+        <div class="t">Start Contributing for<br>better tomorrow</div>
+        <div><a href="#" class="styled-button">DONATE</a></div>
 
 
-                
-        </div><br>
+      </div>
+      <footer class="footer">
+        <div class="footercontainer">
+          <div class="row xe">
+            <div class="col-md-6 ">
+              <div class="row">
+                <div class="col-md-4 mb-md-0 mb-4 ">
 
+                  <ul class="list-unstyled ttt">
+                    <li><a href="#" class="py-1 d-block">Contact</a></li>
+                    <li><a href="#" class="py-1 d-block"><i class="fa fa-map-marker" aria-hidden="true" style="color: #5044EB;"></i> New Delhi-110095</a></li>
+                    <li><a href="#" class="py-1 d-block"><i class="fa fa-phone" style="font-size:16px; color: #5044EB;"></i> +91 9876543210</a></li>
+                    <li><a href="#" class="py-1 d-block"><i class="fa fa-envelope" style="font-size:16px; color: #5044EB;"></i> qureshconference@gmail.com</a></li>
 
+                  </ul>
+                </div>
+                <div class="col-md-4 mb-md-0 mb-4">
 
+                  <ul class="list-unstyled ttt">
+                    <li><a href="#" class="py-1 d-block">Platform</a></li>
+                    <li><a href="#" class="py-1 d-block">Home</a></li>
+                    <li><a href="#" class="py-1 d-block">About us</a></li>
+                    <li><a href="#" class="py-1 d-block">Gallery</a></li>
+                    <li><a href="#" class="py-1 d-block">Annual Report</a></li>
+                    <li><a href="#" class="py-1 d-block">Contact us</a></li>
 
+                  </ul>
+                </div>
+                <div class="col-md-4 mb-md-0 mb-4">
 
+                  <ul class="list-unstyled ttt">
+                    <li><a href="#" class="py-1 d-block">Programs</a></li>
+                    <li><a href="#" class="py-1 d-block">Educational Guidance</a></li>
+                    <li><a href="#" class="py-1 d-block">Skill Development</a></li>
+                    <li><a href="#" class="py-1 d-block">Scholarship</a></li>
+                    <li><a href="#" class="py-1 d-block">Quresh Matrimony</a></li>
 
-      <div class="causes"><section class="text-gray-600 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -m-4">
-         
-            <div class="p-4 lg:w-1/3">
-              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Raclette Blueberry Nextious Level</h1>
-                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-                <a class="text-indigo-500 inline-flex items-center">Learn More
-                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-                <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                  <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                      <circle cx="12" cy="12" r="3"></circle>
-                    </svg>1.2K
-                  </span>
-                  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                    </svg>6
-                  </span>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="p-4 lg:w-1/3">
-              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Ennui Snackwave Thundercats</h1>
-                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-                <a class="text-indigo-500 inline-flex items-center">Learn More
-                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-                <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                  <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                      <circle cx="12" cy="12" r="3"></circle>
-                    </svg>1.2K
-                  </span>
-                  <span class="text-gray-400 inline-flex items-center leading-none text-sm">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                    </svg>6
-                  </span>
+            <div class="col-md-6 ex">
+              <div class="imger">
+               <span class="imgg"><img src="image11.png" alt="Your Image Alt Text"></span> 
+               <span><img src="logo2.jpeg" alt="Your Image Alt Text"></span> 
+              </div>
+              <div style="padding-left: 10px;">
+                <div class="col-md-12 col-lg-11 mb-md-0 mb-4">
+                  <h2 class="footer-heading mt-5"></h2>
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control rounded-left" placeholder="Enter email address" />
+                      <input type="submit" value="Subscribe" class="form-control submit px-3 rounded-right" />
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            <div class="p-4 lg:w-1/3">
-              <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-                <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Selvage Poke Waistcoat Godard</h1>
-                <p class="leading-relaxed mb-3">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-                <a class="text-indigo-500 inline-flex items-center">Learn More
-                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14"></path>
-                    <path d="M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-                <div class="text-center mt-2 leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
-                  <span class="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                      <circle cx="12" cy="12" r=
+          </div>
+
+          <div class="row mt-5 pt-4 border-top">
+            <hr>
+            <div class="col-md-6 col-lg-8">
+
+              <p class="copyright ttt">
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                All rights reserved
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-4 text-md-right">
+              <p class="mb-0 list-unstyled ttt">
+                <a class="mr-md-3" href="#">Terms &amp; Conditions</a>
+                <a class="mr-md-3" href="#">Privacy</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        const slidesContainer = document.getElementById('slides');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+
+
+        function showNext() {
+          currentIndex = (currentIndex + 1) % slidesContainer.children.length;
+          updateSlidePosition();
+        }
+
+
+        function showPrevious() {
+          currentIndex = (currentIndex - 1 + slidesContainer.children.length) % slidesContainer.children.length;
+          updateSlidePosition();
+        }
+
+
+        function updateSlidePosition() {
+          const newTransformValue = -currentIndex * 100 + '%';
+          slidesContainer.style.transform = 'translateX(' + newTransformValue + ')';
+        }
+
+
+        prevBtn.addEventListener('click', showPrevious);
+        nextBtn.addEventListener('click', showNext);
+      </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          let reviewIndex = 0;
+
+
+          const container = document.querySelector('.review-insider');
+          const reviews = document.querySelectorAll('.review');
+          const reviewWidth = reviews[0].offsetWidth;
+          const translateValue = -reviewIndex * (reviewWidth + 5);
+          container.style.transform = `translateX(${translateValue}px)`;
+
+          function changeReview(direction) {
+            const totalWidth = reviews.length * (reviewWidth + 5); // Adjusted margin
+
+            reviewIndex = (reviewIndex + direction + reviews.length) % reviews.length;
+            const translateValue = -reviewIndex * (reviewWidth + 55); // Adjusted margin
+
+            // Ensure reviews remain within the visible area
+            if (totalWidth + translateValue < container.offsetWidth) {
+              reviewIndex = 0;
+              container.style.transform = 'translateX(0)';
+            } else {
+              container.style.transform = `translateX(${translateValue}px)`;
+            }
+          }
+
+
+          document.querySelector('.left-arrow').addEventListener('click', function () {
+            changeReview(-1);
+          });
+
+          document.querySelector('.right-arrow').addEventListener('click', function () {
+            changeReview(1);
+          });
+        });
+      </script>
+
+</body>
+
+</html>
