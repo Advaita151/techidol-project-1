@@ -13,6 +13,7 @@ import volunteerRegisterRoute from './routers/volunteerRegisterRoute.js'
 import blogRoute from './routers/blogRoute.js'
 import formRoute from './routers/formRoute.js'
 import matrimonyRoute from './routers/matrimonyRoute.js'
+import profileRoute from './routers/profileRoute.js'
 import { protect } from './protect.js';
 import path,{dirname} from 'path';
 import { fileURLToPath } from 'url';
@@ -39,6 +40,7 @@ app.use("/volunteer",protect,volunteerRoute);
 app.use("/blog",protect,blogRoute);
 app.use("/form",protect,formRoute);
 app.use("/matrimony",protect,matrimonyRoute);
+app.use("/profile",protect,profileRoute);
 
 
 app.get("/",(req,res)=>{

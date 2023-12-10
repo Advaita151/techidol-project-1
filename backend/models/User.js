@@ -16,6 +16,19 @@ const userSchema = new mongoose.Schema({
         unique: true,
         minlength: [6,"Password length should be 6 characters"]
     },
+    name: String,
+    fathername: String,
+    qualification: String,
+    occupation: String,
+    phone: Number,
+    date: Date,
+    gender: String,
+    address: String,
+    city: String,
+    region: String,
+    pincode: Number,
+    marital: String,
+    aadhar: String, 
 })
 
 userSchema.pre('save', async function(next){

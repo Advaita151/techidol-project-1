@@ -138,7 +138,7 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -159,7 +159,7 @@
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="/contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -192,12 +192,7 @@
         </a>
       </li><!-- End Blank Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="/matrimony">
-          <i class="bi bi-layout-text-window-reverse"></i>
-          <span>Matrimony info</span>
-        </a>
-      </li>
+      
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -213,86 +208,7 @@
         </ol>
       </nav>
     </div><!-- End Page Title -->
-
     
-
-    <div class="card">
-      <div class="card-body">
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Arpit Bala
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>Father Name:</strong>Debashish Bala 
-                <strong>Qualification:</strong> Btech
-                <strong>Occupation:</strong> Teacher
-                <strong>Email:</strong>test@123
-                <strong>Phone:</strong>64546513541
-                <strong>Gender:</strong>Male
-                <strong>Date of Birth:</strong>03/03/2004
-                <strong>Address:</strong>afasdfasdf
-                <strong>City:</strong>jamshedpur
-                <strong>Region:</strong>mumbai
-                <strong>Pincode:</strong>751017
-                <strong>Marital Status:</strong>married
-                <strong>Aadhar Number:</strong>3546831
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Arvind Prasad
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>Father Name:</strong>Debashish Bala 
-                <strong>Qualification:</strong> Btech
-                <strong>Occupation:</strong> Teacher
-                <strong>Email:</strong>test@123
-                <strong>Phone:</strong>64546513541
-                <strong>Gender:</strong>Male
-                <strong>Date of Birth:</strong>03/03/2004
-                <strong>Address:</strong>afasdfasdf
-                <strong>City:</strong>jamshedpur
-                <strong>Region:</strong>mumbai
-                <strong>Pincode:</strong>751017
-                <strong>Marital Status:</strong>married
-                <strong>Aadhar Number:</strong>3546831
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Govind Jha
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                <strong>Father Name:</strong>Debashish Bala 
-                <strong>Qualification:</strong> Btech
-                <strong>Occupation:</strong> Teacher
-                <strong>Email:</strong>test@123
-                <strong>Phone:</strong>64546513541
-                <strong>Gender:</strong>Male
-                <strong>Date of Birth:</strong>03/03/2004
-                <strong>Address:</strong>afasdfasdf
-                <strong>City:</strong>jamshedpur
-                <strong>Region:</strong>mumbai
-                <strong>Pincode:</strong>751017
-                <strong>Marital Status:</strong>married
-                <strong>Aadhar Number:</strong>3546831
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <ul id="volunteerList"></ul>
     
@@ -321,27 +237,27 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-    // index.js
+    index.js
 
-    // document.addEventListener('DOMContentLoaded', async function() {
-    //     const volunteerList = document.getElementById('volunteerList');
+    document.addEventListener('DOMContentLoaded', async function() {
+        const volunteerList = document.getElementById('volunteerList');
 
-    //     try {
-    //         // Fetch the list of volunteers from the server
-    //         const response = await fetch('/volunteer/api'); // Use the new API endpoint
-    //         const volunteers = await response.json();
+        try {
+            // Fetch the list of volunteers from the server
+            const response = await fetch('/volunteer/api'); // Use the new API endpoint
+            const volunteers = await response.json();
 
-    //         // Display the list of volunteers on the webpage
-    //         volunteers.forEach(volunteer => {
-    //             const listItem = document.createElement('li');
-    //             listItem.textContent = `${volunteer.name} - ${volunteer.region}`;
-    //             volunteerList.appendChild(listItem);
-    //         });
-    //     } catch (error) {
-    //         console.error(error);
-    //         // Handle errors and display a message to the user
-    //     }
-    // });
+            // Display the list of volunteers on the webpage
+            volunteers.forEach(volunteer => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${volunteer.name} - ${volunteer.region}`;
+                volunteerList.appendChild(listItem);
+            });
+        } catch (error) {
+            console.error(error);
+            // Handle errors and display a message to the user
+        }
+    });
 
   </script>
 </body>

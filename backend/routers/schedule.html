@@ -143,7 +143,7 @@
       <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
+        <a class="nav-link collapsed" href="/profile">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
@@ -164,7 +164,7 @@
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="/contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>
@@ -276,7 +276,50 @@
                       <td>Completed</td>
                       <td>2011-04-19</td>
                     </tr>
+                    <tr>
+                      <th scope="row">Enter new <br> Program</th>
+                      <td>
+                        <div class="row mb-1">
+                          <div class="col-sm-6">
+                            <input id="program" type="text" class="form-control" placeholder="Program Name">
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mb-1">
+                          <div class="col-sm-6">
+                            <input id="description" type="text" class="form-control" placeholder="Description">
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mb-1">
+                          <div class="col-sm-6">
+                            <input id="status" type="text" class="form-control" placeholder="Status">
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="row mb-1">
+                          <div class="col-sm-6">
+                            <button id="button" type="button" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-1 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Submit</button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
                   </tbody>
+                </table>
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Sl. No.</th>
+                      <th scope="col">Program</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Start Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tableBody"></tbody>
                 </table>
                 <!-- End Table with stripped rows -->
   
@@ -312,7 +355,71 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  
+  <script defer>
+    
+
+
+
+    document.getElementById("button").addEventListener('click', async(e)=>{
+      e.preventDefault();
+      
+      const program = document.getElementById("program").value;
+      const description = document.getElementById("description").value;
+      const statuss = document.getElementById("status").value;
+
+      try {
+        const response = await fetch("/schedule", {
+          method: "POST",
+          headers: {
+          "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            program,
+            description,
+            statuss
+          }),
+        });
+
+        if (response.ok) {
+          alert("Schedule submitted successfully!");
+              
+        } else {
+            alert("Failed to submit Schedule. Please try again later.");
+          }
+        } catch (error) {
+          console.error(error);
+          alert("An error occurred while submitting the Schedule.");
+        }
+    })
+
+    document.addEventListener('DOMContentLoaded', async function(){
+      const tableBody = document.getElementById("tableBody");
+      console.log(tableBody)
+
+      try {
+                const response = await fetch('/schedule/api');
+                const schedules = await response.json();
+
+                
+                schedules.forEach(schedule => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>1</td>
+                        <td>${schedule.program}</td>
+                        <td>${schedule.description}</td>
+                        <td>${schedule.statuss}</td>
+                        <td>${new Date(schedule.dateCreated).toLocaleString()}</td>
+                    `;
+                    console.log(row)
+                    console.log(tableBody)
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error(error);
+                
+            }
+    })
+  </script>
 </body>
 
 </html>

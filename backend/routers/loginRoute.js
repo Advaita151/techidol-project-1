@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 
 const router = express.Router();
 
-const maxAge = 3 * 24 * 60 * 60 * 1000;
+const maxAge = 1 * 24 * 60 * 60 * 1000;
 
 const cookieOptions = {
   expires: new Date(Date.now() +  maxAge),

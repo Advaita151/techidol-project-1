@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const volunteerSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
   name: String,
   fathername: String,
   qualification: String,
